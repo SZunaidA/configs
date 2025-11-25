@@ -17,7 +17,7 @@ vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
     {
-        "catppuccin/nvim", 
+        "catppuccin/nvim",
         priority = 1000,
         name = "catppuccin",
         config = function()
@@ -97,4 +97,26 @@ require("lazy").setup({
             "neovim/nvim-lspconfig"
         }
     },
+    {
+        'saghen/blink.cmp',
+        dependencies = { 'rafamadriz/friendly-snippets' },
+
+        version = '1.*',
+        opts = {
+          keymap = { preset = 'super-tab' },
+
+          appearance = {
+            nerd_font_variant = 'mono'
+          },
+
+          completion = { documentation = { auto_show = true } },
+
+          sources = {
+            default = { 'lsp', 'path', 'snippets', 'buffer' },
+          },
+
+          fuzzy = { implementation = "prefer_rust_with_warning" }
+        },
+        opts_extend = { "sources.default" }
+    }
 })
