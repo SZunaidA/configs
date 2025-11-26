@@ -1,7 +1,8 @@
 * Setup diagnostic information such that they automatically appear on hover
+* Setup padding around the diagnostic information textbox
+* Setup keybind for diagnostic information
 * Setup telescope
-* Setup a better file explorer
-* Fix the missing emoji symbols in the autocomplete engine
 * Setup keybinds for goto, references
-* Setup better status line
-* Refactor every plugin into their own files
+* Setup yazi in neovim (current yazi doesnt load the nvim config when opening a file)
+* Figure out multiplexing (whether through neovim, or the windows terminal)
+* Figure out the copy paste buffer sharing between system and within nvim buffers/windows
