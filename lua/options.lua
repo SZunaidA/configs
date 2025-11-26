@@ -23,3 +23,4 @@ vim.opt.termguicolors = true
 
 vim.g.mapleader = " "
 
+vim.env.PATH = vim.env.PATH .. ":/snap/yazi/current"
