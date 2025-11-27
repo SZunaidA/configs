@@ -11,7 +11,5 @@
 
 ## PLUGINS
 
-* telescope
-* autopairs
 * vscodediff 
 
