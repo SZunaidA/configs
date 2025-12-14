@@ -9,7 +9,6 @@ config.initial_rows = 20
 
 config.font_size = 12
 config.color_scheme = 'Catppuccin Macchiato'
-config.font = wezterm.font 'MartianMono NFM'
 
 -- window background
 -- config.window_background_opacity = 0.6
@@ -30,6 +29,7 @@ LINUX = "x86_64-unknown-linux-gnu"
 
 -- setting wsl to default
 if wezterm.target_triple == WINDOWS then
+    config.font = wezterm.font 'MartianMono NFM'
     config.default_domain = 'WSL:Ubuntu'
     config.default_cwd = '~' 
     config.window_decorations = "TITLE | RESIZE"
@@ -47,76 +47,79 @@ else
     }
 end 
 
+if wezterm.target_triple == MACOS then
+   config.font = wezterm.font 'Menlo' 
+end
 
 local act = wezterm.action
-config.leader = { key = 'b', mods = 'CTRL', timeout_milliseconds = 1000 }
-config.keys = {
-
-    -- Tab related keybinds
-    {
-        key = 'n',
-        mods = 'LEADER',
-        action = act.SpawnTab 'CurrentPaneDomain'
-    },
-    {
-        key = 'w',
-        mods = 'LEADER',
-        action = act.CloseCurrentTab { confirm = false }
-    },
+-- config.leader = { key = 'b', mods = 'CTRL', timeout_milliseconds = 1000 }
+-- config.keys = {
+-- 
+--     -- Tab related keybinds
 --     {
---         key = ':',
---         mods = 'ALT',
---         action = act.ActivateRelativeTab(-1)
+--         key = 'n',
+--         mods = 'LEADER',
+--         action = act.SpawnTab 'CurrentPaneDomain'
 --     },
 --     {
---         key = '"',
---         mods = 'ALT',
---         action = act.ActivateRelativeTab(1)
+--         key = 'w',
+--         mods = 'LEADER',
+--         action = act.CloseCurrentTab { confirm = false }
 --     },
-
-    -- Pane related keybinds
-    {
-       key = '[',
-       mods = 'LEADER',
-       action = act.SplitHorizontal { domain = 'CurrentPaneDomain' }
-    },
-    {
-       key = ']',
-       mods = 'LEADER',
-       action = act.SplitVertical { domain = 'CurrentPaneDomain' }
-    },
-    {
-        key = 'x',
-        mods = 'LEADER',
-        action = act.CloseCurrentPane { confirm = false }
-    },
-
-    {
-        key = 'h',
-        mods = 'LEADER',
-        action = act.ActivatePaneDirection 'Left'
-    },
-    {
-        key = 'l',
-        mods = 'LEADER',
-        action = act.ActivatePaneDirection 'Right'
-    },
-    {
-        key = 'j',
-        mods = 'LEADER',
-        action = act.ActivatePaneDirection 'Down'
-    },
-    {
-        key = 'k',
-        mods = 'LEADER',
-        action = act.ActivatePaneDirection 'Up'
-    },
-
-    {
-        key = 'f',
-        mods = 'LEADER',
-        action = act.TogglePaneZoomState
-    }
+-- --     {
+-- --         key = ':',
+-- --         mods = 'ALT',
+-- --         action = act.ActivateRelativeTab(-1)
+-- --     },
+-- --     {
+-- --         key = '"',
+-- --         mods = 'ALT',
+-- --         action = act.ActivateRelativeTab(1)
+-- --     },
+-- 
+--     -- Pane related keybinds
+--     {
+--        key = '[',
+--        mods = 'LEADER',
+--        action = act.SplitHorizontal { domain = 'CurrentPaneDomain' }
+--     },
+--     {
+--        key = ']',
+--        mods = 'LEADER',
+--        action = act.SplitVertical { domain = 'CurrentPaneDomain' }
+--     },
+--     {
+--         key = 'x',
+--         mods = 'LEADER',
+--         action = act.CloseCurrentPane { confirm = false }
+--     },
+-- 
+--     {
+--         key = 'h',
+--         mods = 'LEADER',
+--         action = act.ActivatePaneDirection 'Left'
+--     },
+--     {
+--         key = 'l',
+--         mods = 'LEADER',
+--         action = act.ActivatePaneDirection 'Right'
+--     },
+--     {
+--         key = 'j',
+--         mods = 'LEADER',
+--         action = act.ActivatePaneDirection 'Down'
+--     },
+--     {
+--         key = 'k',
+--         mods = 'LEADER',
+--         action = act.ActivatePaneDirection 'Up'
+--     },
+-- 
+--     {
+--         key = 'f',
+--         mods = 'LEADER',
+--         action = act.TogglePaneZoomState
+--     }
 
 --    for i = 1, 9 do
 --        table.insert(config.keys, {
@@ -125,7 +128,8 @@ config.keys = {
 --            action = action.ActivateTab(i - 1),
 --        })
 --    end
-}
+
+-- }
 
 
 
