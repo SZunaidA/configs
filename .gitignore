@@ -8,3 +8,5 @@
 !/lazygit/
 !/tmux/
 /tmux/plugins/
+!/ohmyposh.toml
+!/.zshrc
