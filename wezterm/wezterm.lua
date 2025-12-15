@@ -11,7 +11,6 @@ config.font_size = 12
 config.color_scheme = 'Catppuccin Macchiato'
 
 -- window settings 
-config.window_background_opacity = 0.75
 config.window_decorations = "RESIZE"
 
 -- tab settings
@@ -26,13 +25,13 @@ config.colors = {
 -- disable bell
 config.audible_bell = "Disabled"
 
-
 WINDOWS = "x86_64-pc-windows-msvc"
 MACOS = "aarch64-apple-darwin"
 LINUX = "x86_64-unknown-linux-gnu"
 
 -- setting wsl to default
 if wezterm.target_triple == WINDOWS then
+    config.window_background_opacity = 0.75
     config.win32_system_backdrop = 'Acrylic'
     config.font = wezterm.font 'MartianMono NFM'
     config.default_domain = 'WSL:Ubuntu'
@@ -40,7 +39,10 @@ if wezterm.target_triple == WINDOWS then
 end
 
 if wezterm.target_triple == MACOS then
-   config.font = wezterm.font 'Menlo'
+    config.font_size = 20 
+    config.window_background_opacity = 0.9
+    config.macos_window_background_blur = 30
+    config.font = wezterm.font 'SF Mono'
 end
 
 return config
